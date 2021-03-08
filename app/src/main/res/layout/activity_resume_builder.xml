@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".ResumeModule.ResumeBuilderActivity"
+    android:gravity="center"
+    android:id = "@+id/r1"
+    >
+
+    <TextView
+        android:id="@+id/resumebuilTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_weight="1"
+        android:text="Resume Builder"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@android:color/black"
+        android:textSize="38sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/welcomeTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="105dp"
+        android:layout_weight="1"
+        android:text="Welcome :)"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/welcomeTv"
+        android:layout_margin="20dp"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/createResumeBtn"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:text="Create Resume"
+            android:textSize="9sp"
+            android:layout_weight="1"/>
+        <Button
+            android:id="@+id/viewInterviewQueBtn"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="9sp"
+            android:text="Interview Questions"
+            android:layout_weight="1"/>
+
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

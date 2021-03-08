@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "620596810106",
+    "project_id": "rcpit-tnp",
+    "storage_bucket": "rcpit-tnp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:620596810106:android:00d040e30931b1585906c3",
+        "android_client_info": {
+          "package_name": "com.example.rcpittnp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "620596810106-een980sl29nvtjn9au9fpb32843irutf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoXgdR4YzQI2XjO3zlALlRAKBAAS_OwkE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "620596810106-een980sl29nvtjn9au9fpb32843irutf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

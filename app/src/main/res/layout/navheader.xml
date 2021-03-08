@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:background="@color/purple_500"
+
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        android:textColor="@color/white"
+        android:layout_marginLeft="10dp"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/prn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="user@email.com"
+        android:textColor="@color/white"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentBottom="true"
+        android:textSize="20dp" />
+</RelativeLayout>

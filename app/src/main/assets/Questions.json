@@ -1,0 +1,173 @@
+{
+	"questions":[
+					{
+						"question" : "C99 standard guarantees uniqueness of __________ characters for internal names",
+						"options": ["63","45","88","65"],
+						"ans":"63"
+					},
+					
+					{
+						"question" : "Which of the following is the correct syntax to print the message in C++ language?",
+						"options": ["cout <<\"Hello world!\";","Cout << Hello world!;","Out <<\"Hello world!;","None of the above"],
+						"ans":"cout <<\"Hello world!\";"
+					},
+					{
+						"question" : "Which of the following is the correct identifier?",
+						"options": ["$var_name","VAR_123","varname@","None of the above"],
+						"ans":"VAR_123"
+					},
+					{
+						"question" : " Which of the following is the address operator?",
+						"options": ["@","&","#","%"],
+						"ans":"&"
+					},
+					{
+						"question" : " Which of the following features must be supported by any programming language to become a pure object-oriented programming language?",
+						"options": ["Encapsulation","Inheritance","Polymorphism","All of the above"],
+						"ans":"All of the above"
+					},
+					{
+						"question" : " The programming language that has the ability to create new data types is called___.",
+						"options": ["Overloaded","Encapsulated","Reprehensible","Extensible"],
+						"ans":"Extensible"
+					},
+{
+						"question" : "Which of the following is the correct syntax to read the single character to console in the C++ language?",
+						"options": ["Read ch()","Getline vh()","get(ch)","Scanf(ch)"],
+						"ans":"get(ch)"
+					},
+{
+						"question" : "Which of the following statements is correct about the formal parameters in C++?",
+						"options": ["Parameters with which functions are called","Parameters which are used in the definition of the function","Variables other than passed parameters in a function","Variables that are never used in the function"],
+						"ans":"Parameters with which functions are called"
+					},
+{
+						"question" : "The C++ language is ______ object-oriented language",
+						"options": ["Pure Object oriented","Not Object oriented","Semi Object-oriented or Partial Object-oriented","None of the above"],
+						"ans":"Semi Object-oriented or Partial Object-oriented"
+					},
+{
+						"question" : "Which of the following comment syntax is correct to create a single-line comment in the C++ program?",
+						"options": ["//Comment","/Comment/","/Comment//","Comment//"],
+						"ans":"//Comment"
+					},
+{
+						"question" : " C++ is a ___ type of language.",
+						"options": ["High-level Language","Low-level language","Middle-level language","None of the above"],
+						"ans":"this"
+					},
+
+{
+						"question" : "If we stored five elements or data items in an array, what will be the index address or the index number of the array's last data item?",
+						"options": ["3","4","5","5"],
+						"ans":"4"
+					},
+					{
+						"question" : "Which of the following is the original creator of the C++ language?",
+						"options": ["Dennis Ritchie","Ken Thompson","Bjarne Stroustrup","Brian Kernighan"],
+						"ans":"Bjarne Stroustrup"
+					},
+{
+						"question" : "Which of the following is the correct syntax for declaring the array?",
+						"options": ["init array []","int array [5];","Array[5]","none"],
+						"ans":"this"
+					},
+{
+						"question" : "Which type of memory is used by an Array in C++ programming language?",
+						"options": ["Contiguous","None-contiguous","Both A and B","ot mentioned"],
+						"ans":"Contiguous"
+					},
+{
+						"question" : "What is the 16-bit compiler allowable range for integer constants?",
+						"options": ["3.4e38 to 3.4e38","-32767 to 32768","-32668 to 32667","-32768 to 32767"],
+						"ans":"-32768 to 32767"
+					},
+
+					{
+						"question" : "What is a lint?",
+						"options": ["C compiler","Interactive debugger","Analyzing tool","None"],
+						"ans":"Analyzing tool"
+					},
+
+
+{
+						"question" : "Why is a macro used in place of a function?",
+						"options": ["It reduces execution time.","It reduces code size.","It increases execution time.","It increases code size."],
+						"ans":"It increases code size."
+					},
+{
+						"question" : " In the C language, the constant is defined _______.",
+						"options": ["Before main","After main","Anywhere, but starting on a new line.","None of the these."],
+						"ans":"this"
+					},
+{
+						"question" : "which is keyword in java?",
+						"options": ["he","this","that","those"],
+						"ans":"this"
+					},
+{
+						"question" : "Which of the following option leads to the portability and security of Java?",
+						"options": ["Bytecode is executed by JVM","The applet makes the Java code secure and portable","Use of exception handling","Dynamic binding between objects"],
+						"ans":"Bytecode is executed by JVM"
+					},
+{
+						"question" : "Which of the following is not a Java features?",
+						"options": ["Dynamic","Architecture Neutral","Use of pointers","Object-oriented"],
+						"ans":"Use of pointers"
+					},
+
+{
+						"question" : "The \u0021 article referred to as a",
+						"options": ["Unicode escape sequence","Octal escape","Hexadecimal","those"],
+						"ans":"Unicode escape sequence"
+					},
+{
+						"question" : "_____ is used to find and fix bugs in the Java programs.",
+						"options": ["JVM","JRE","JDK","JDB"],
+						"ans":"JDB"
+					},
+
+
+{
+						"question" : "Which of the following tool is used to generate API documentation in HTML format from doc comments in source code?",
+						"options": ["javap tool","javaw command","Javadoc tool","those"],
+						"ans":"Javadoc tool"
+					},
+{
+						"question" : "Which of the following is an immediate subclass of the Panel class?",
+						"options": ["Applet class","Windows class","Frame class","Dialo class"],
+						"ans":"Applet class"
+					},
+{
+						"question" : "Which package contains the Random class?",
+						"options": ["java.util package","java.lang package","java.awt package","java.io package"],
+						"ans":"java.util package"
+					},
+{
+						"question" : "An interface with no fields or methods is known as a ______.",
+						"options": ["Runnable Interface ","Marker Interface","that","Abstract Interface"],
+						"ans":"Marker Interface"
+					},
+{
+						"question" : "In which memory a String is stored, when we create a string using new operator?",
+						"options": ["Stack","String memory","Heap memory ","Random storage space"],
+						"ans":"Heap memory"
+					},
+{
+						"question" : "Which of the following is a reserved keyword in Java?",
+						"options": ["object","strictfp","main","system"],
+						"ans":"strictfp"
+					},
+{
+						"question" : "Which keyword is used for accessing the features of a package?",
+						"options": ["package","import","that","those"],
+						"ans":"import"
+					},
+{
+						"question" : "In java, jar stands for_____.",
+						"options": ["Java Archive Runner","Java Application Resource","Java Application Runner","None"],
+						"ans":"None"
+					}
+
+				]
+}
