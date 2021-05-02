@@ -1,6 +1,7 @@
 package com.example.rcpittnp.Model;
 
 public class StudentModel {
+    String id;
     String firstName;
     String lastName;
     String emmailId;
@@ -18,7 +19,8 @@ public class StudentModel {
     public StudentModel() {
     }
 
-    public StudentModel(String firstName, String lastName, String emmailId, String mobNumber, String prnNumber, String sscMarks, String hscMarks, boolean diploma, String diplomaMarks, boolean yearGap, boolean activeBacklog, String cgpa) {
+    public StudentModel(String id ,String firstName, String lastName, String emmailId, String mobNumber, String prnNumber, String sscMarks, String hscMarks, boolean diploma, String diplomaMarks, boolean yearGap, boolean activeBacklog, String cgpa) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.emmailId = emmailId;
@@ -31,6 +33,14 @@ public class StudentModel {
         this.yearGap = yearGap;
         this.activeBacklog = activeBacklog;
         this.cgpa = cgpa;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getFirstName() {

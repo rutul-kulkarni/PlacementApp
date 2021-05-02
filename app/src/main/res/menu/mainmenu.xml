@@ -10,4 +10,6 @@
         android:title="Give Quizz"/>
     <item android:id="@+id/resumebuil"
         android:title="Resume Builder"/>
+    <item android:id="@+id/addCampusNotice"
+        android:title="Add Campus Notice"/>
 </menu>

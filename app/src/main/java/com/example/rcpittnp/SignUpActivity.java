@@ -1,8 +1,5 @@
 package com.example.rcpittnp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.rcpittnp.Model.StudentModel;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -115,7 +115,7 @@ public class SignUpActivity extends AppCompatActivity {
                         if(!activeBacklog.equals("0"))
                             hasactiveBacklog = true;
 
-                        StudentModel student = new StudentModel(firstName ,lastName , email ,mobileNumber ,prn ,sscMarks ,hscMarks , hasdiploma ,diplomaMarks , hasyearGap ,hasactiveBacklog ,currentCgpa);
+                        StudentModel student = new StudentModel(firebaseAuth.getUid() ,firstName ,lastName , email ,mobileNumber ,prn ,sscMarks ,hscMarks , hasdiploma ,diplomaMarks , hasyearGap ,hasactiveBacklog ,currentCgpa);
                         rootRef = FirebaseDatabase.getInstance().getReference();
                         userId = firebaseAuth.getCurrentUser().getUid();
                         rootRef.child("users").child("student").child(userId).setValue(student).addOnCompleteListener(new OnCompleteListener<Void>() {

@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.rcpittnp.Admin.AddCampusNotice;
 import com.example.rcpittnp.Model.StudentModel;
 import com.example.rcpittnp.ResumeModule.ResumeBuilderActivity;
 import com.google.android.material.navigation.NavigationView;
@@ -50,24 +51,24 @@ public class ProfileActivity extends AppCompatActivity {
         ArrayList<StudentModel> list = new ArrayList<>();
         reference = FirebaseDatabase.getInstance().getReference();
         String uid = firebaseAuth.getCurrentUser().getUid();
-        reference.child("users").child("student").child(uid);
+        reference = reference.child("users").child("student").child(uid);
 
-//        reference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for(DataSnapshot dataSnapshot : snapshot.getChildren())
-//                {
-//                    StudentModel student = dataSnapshot.getValue(StudentModel.class);
-//                    if(student.getEmmailId().equals(firebaseAuth.getCurrentUser().getEmail()))
-//                        list.add(student);
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
+        /*reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot : snapshot.getChildren())
+                {
+                    StudentModel student = dataSnapshot.getValue(StudentModel.class);
+                    if(student.getId().equalsIgnoreCase(firebaseAuth.getUid()))
+                        list.add(student);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });*/
 
         Log.d("TAG", "onCreate: "+list.size());
 
@@ -91,6 +92,8 @@ public class ProfileActivity extends AppCompatActivity {
                 switch (item.getItemId())
                 {
                     case R.id.viewnotice :
+                        Intent intent3 = new Intent(ProfileActivity.this , ViewNotice.class);
+                        startActivity(intent3);
                         Toast.makeText(getApplicationContext(),"View Notice is open",Toast.LENGTH_LONG).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
@@ -116,6 +119,12 @@ public class ProfileActivity extends AppCompatActivity {
                         Intent intent1 = new Intent(ProfileActivity.this , ResumeBuilderActivity.class);
                         startActivity(intent1);
                         Toast.makeText(getApplicationContext(),"Resume builder is open",Toast.LENGTH_LONG).show();
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.addCampusNotice:
+                        Intent intent2 = new Intent(ProfileActivity.this , AddCampusNotice.class);
+                        startActivity(intent2);
+                        Toast.makeText(getApplicationContext(),"Add Campus Notice is open",Toast.LENGTH_LONG).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                 }

@@ -27,7 +27,7 @@
                 android:text="YOUR RESUME"
                 android:textAlignment="center"
                 android:textAllCaps="true"
-                android:textColor="@android:color/holo_blue_dark"
+                android:textColor="@android:color/black"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
@@ -50,7 +50,7 @@
                 android:layout_marginRight="7dp"
                 android:layout_marginTop="5dp"
                 android:text="Full Name : "
-                android:textColor="#ffffff"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
 
             <TextView
@@ -61,7 +61,7 @@
                 android:layout_marginRight="7dp"
                 android:layout_marginTop="5dp"
                 android:text="Residential Address :"
-                android:textColor="#ffffff"
+                android:textColor="@color/black"
                 android:textSize="18sp"/>
 
             <TextView
@@ -72,7 +72,7 @@
                 android:layout_marginRight="7dp"
                 android:layout_marginTop="5dp"
                 android:text="Email ID :"
-                android:textColor="#ffffff"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
 
             <TextView
@@ -83,7 +83,7 @@
                 android:layout_marginRight="7dp"
                 android:layout_marginTop="5dp"
                 android:text="Phone :"
-                android:textColor="#ffffff"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
 
             <TextView
@@ -94,7 +94,7 @@
                 android:layout_marginRight="7dp"
                 android:layout_marginTop="5dp"
                 android:text="Date Of Birth :"
-                android:textColor="#ffffff"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
 
             <TextView
@@ -116,7 +116,7 @@
                 android:layout_marginRight="7dp"
                 android:layout_marginTop="5dp"
                 android:text="Course : "
-                android:textColor="#ffffff"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="normal" />
 
@@ -128,7 +128,7 @@
                 android:layout_marginRight="7dp"
                 android:layout_marginTop="5dp"
                 android:text="Institute : "
-                android:textColor="#ffffff"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="normal" />
 
@@ -140,7 +140,7 @@
                 android:layout_marginRight="7dp"
                 android:layout_marginTop="5dp"
                 android:text="CGPA/SGPI/% : "
-                android:textColor="#ffffff"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="normal" />
 
@@ -152,7 +152,7 @@
                 android:layout_marginRight="7dp"
                 android:layout_marginTop="5dp"
                 android:text="Year Of Passing : "
-                android:textColor="#ffffff"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="normal" />
 
@@ -175,7 +175,7 @@
                 android:layout_marginRight="7dp"
                 android:layout_marginTop="5dp"
                 android:text=""
-                android:textColor="#ffffff"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="normal" />
 
@@ -198,7 +198,7 @@
                 android:layout_marginRight="7dp"
                 android:layout_marginTop="5dp"
                 android:text=""
-                android:textColor="#ffffff"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="normal" />
 
@@ -221,7 +221,7 @@
                 android:layout_marginRight="7dp"
                 android:layout_marginTop="5dp"
                 android:text="Project Title :"
-                android:textColor="#ffffff"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="normal" />
 
@@ -233,7 +233,7 @@
                 android:layout_marginRight="7dp"
                 android:layout_marginTop="5dp"
                 android:text="Project Description :"
-                android:textColor="#ffffff"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="normal" />
 
@@ -256,7 +256,7 @@
                 android:layout_marginRight="7dp"
                 android:layout_marginTop="5dp"
                 android:text="Achievements :"
-                android:textColor="#ffffff"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="normal" />
 
@@ -268,7 +268,7 @@
                 android:layout_marginRight="7dp"
                 android:layout_marginTop="5dp"
                 android:text="Awards :"
-                android:textColor="#ffffff"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="normal" />
 
@@ -291,7 +291,7 @@
                 android:layout_marginRight="7dp"
                 android:layout_marginTop="5dp"
                 android:text=""
-                android:textColor="#ffffff"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="normal" />
 
@@ -314,7 +314,7 @@
                 android:layout_marginRight="7dp"
                 android:layout_marginTop="5dp"
                 android:text="Name/Designation :"
-                android:textColor="#ffffff"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="normal" />
 
@@ -339,7 +339,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="15dp"
                 android:text="Contact No :"
-                android:textColor="#ffffff"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="normal" />
 
