@@ -127,6 +127,7 @@ public class ProfileActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Add Campus Notice is open",Toast.LENGTH_LONG).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
+
                 }
                 return true;
             }

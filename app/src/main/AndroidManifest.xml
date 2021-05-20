@@ -16,7 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RCPITTNP">
-        <activity android:name=".Admin.AddCampusNotice"></activity>
+        <activity android:name=".Admin.AddCampusNotice" />
         <activity android:name=".ViewNotice" />
         <activity android:name=".ResumeModule.GenerateResumeActivity" />
         <activity android:name=".ResumeModule.ReferencesActivity" />
