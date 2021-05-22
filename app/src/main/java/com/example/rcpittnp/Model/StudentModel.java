@@ -1,10 +1,12 @@
 package com.example.rcpittnp.Model;
 
+import java.util.ArrayList;
+
 public class StudentModel {
     String id;
     String firstName;
     String lastName;
-    String emmailId;
+    String emailId;
     String mobNumber;
     String prnNumber;
     String sscMarks;
@@ -15,15 +17,32 @@ public class StudentModel {
     boolean activeBacklog;
     String activeBacklogCount;
     String cgpa;
+    ArrayList<String> placedCompanies;
 
     public StudentModel() {
     }
+    public StudentModel(StudentModel oldStudent) {
+        this.id = oldStudent.getId();
+        this.firstName = oldStudent.getFirstName();
+        this.lastName = oldStudent.getLastName();
+        this.emailId = oldStudent.getEmailId();
+        this.mobNumber = oldStudent.getMobNumber();
+        this.prnNumber = oldStudent.getPrnNumber();
+        this.sscMarks = oldStudent.getSscMarks();
+        this.hscMarks = oldStudent.getHscMarks();
+        this.diploma = oldStudent.isDiploma();
+        this.diplomaMarks = oldStudent.getDiplomaMarks();
+        this.yearGap = oldStudent.isYearGap();
+        this.activeBacklog = oldStudent.isActiveBacklog();
+        this.cgpa = oldStudent.getCgpa();
+        this.placedCompanies = oldStudent.getPlacedCompanies();
+    }
 
-    public StudentModel(String id ,String firstName, String lastName, String emmailId, String mobNumber, String prnNumber, String sscMarks, String hscMarks, boolean diploma, String diplomaMarks, boolean yearGap, boolean activeBacklog, String cgpa) {
+    public StudentModel(String id ,String firstName, String lastName, String emailId, String mobNumber, String prnNumber, String sscMarks, String hscMarks, boolean diploma, String diplomaMarks, boolean yearGap, boolean activeBacklog, String cgpa , ArrayList<String> placedCompanies) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.emmailId = emmailId;
+        this.emailId = emailId;
         this.mobNumber = mobNumber;
         this.prnNumber = prnNumber;
         this.sscMarks = sscMarks;
@@ -33,6 +52,7 @@ public class StudentModel {
         this.yearGap = yearGap;
         this.activeBacklog = activeBacklog;
         this.cgpa = cgpa;
+        this.placedCompanies = placedCompanies;
     }
 
     public String getId() {
@@ -59,12 +79,12 @@ public class StudentModel {
         this.lastName = lastName;
     }
 
-    public String getEmmailId() {
-        return emmailId;
+    public String getEmailId() {
+        return emailId;
     }
 
-    public void setEmmailId(String emmailId) {
-        this.emmailId = emmailId;
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
     }
 
     public String getMobNumber() {
@@ -145,5 +165,13 @@ public class StudentModel {
 
     public void setCgpa(String cgpa) {
         this.cgpa = cgpa;
+    }
+
+    public ArrayList<String> getPlacedCompanies() {
+        return placedCompanies;
+    }
+
+    public void setPlacedCompanies(ArrayList<String> placedCompanies) {
+        this.placedCompanies = placedCompanies;
     }
 }

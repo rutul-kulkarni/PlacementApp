@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddFeedbackActivity">
+
+    <LinearLayout
+        android:id="@+id/splitLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif"
+            android:gravity="start|center"
+            android:text="Select Company for feedback"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <fr.ganfra.materialspinner.MaterialSpinner
+                android:id="@+id/companySpinner"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="0.5"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:ms_arrowColor="@color/black"
+                app:ms_enableFloatingLabel="false"
+                app:ms_hint="Select Company"
+                app:ms_thickness="0dp" />
+
+            <Button
+                android:id="@+id/btnAddQue"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="0.25"
+                android:background="@drawable/rect_black_border_blackfill"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="Add Que."
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:textAllCaps="false" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

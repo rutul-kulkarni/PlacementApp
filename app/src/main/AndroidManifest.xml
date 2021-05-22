@@ -16,6 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RCPITTNP">
+        <activity android:name=".ViewHRContact"></activity>
+        <activity android:name=".AddHrContactActivity" />
+        <activity android:name=".AddFeedbackActivity" />
+        <activity android:name=".AddPlacementStatusActivity" />
         <activity android:name=".Admin.AddCampusNotice" />
         <activity android:name=".ViewNotice" />
         <activity android:name=".ResumeModule.GenerateResumeActivity" />

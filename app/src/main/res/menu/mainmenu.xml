@@ -12,4 +12,12 @@
         android:title="Resume Builder"/>
     <item android:id="@+id/addCampusNotice"
         android:title="Add Campus Notice"/>
+    <item android:id="@+id/addPlacementStatus"
+        android:title="Add Placement Status"/>
+    <item android:id="@+id/addFeedback"
+        android:title="Add Feedback Campus"/>
+    <item android:id="@+id/addHrContact"
+        android:title="Add HR Contact"/>
+    <item android:id="@+id/viewHrContact"
+        android:title="View HR Contact"/>
 </menu>

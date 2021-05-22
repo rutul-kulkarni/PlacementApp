@@ -8,8 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.rcpittnp.Adapter.ViewNoticeRVAdapter;
-import com.example.rcpittnp.Model.Notice;
+import com.example.rcpittnp.Adapter.ViewHRContactAdapter;
+import com.example.rcpittnp.Model.HrContact;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,40 +20,37 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ViewNotice extends AppCompatActivity {
-    RecyclerView viewNoticeRV;
+public class ViewHRContact extends AppCompatActivity {
+
+    RecyclerView hrContactRv;
     DatabaseReference rootRef;
-    List<Notice> notices;
     FirebaseAuth firebaseAuth;
     String userId;
-
+    List<HrContact> hrContacts;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_notice);
-
-        firebaseAuth = FirebaseAuth.getInstance();
-        userId = firebaseAuth.getCurrentUser().getUid();
-        viewNoticeRV = findViewById(R.id.viewnoticeRV);
-        notices = new ArrayList<>();
-        rootRef = FirebaseDatabase.getInstance().getReference("notices");
+        setContentView(R.layout.activity_view_h_r_contact);
+        hrContacts = new ArrayList<>();
+        hrContactRv = findViewById(R.id.viewHrContactRv);
+        rootRef = FirebaseDatabase.getInstance().getReference("hrcontact");
         getDataFromDatabase();
     }
-    public void getDataFromDatabase()
-    {
+
+    public void getDataFromDatabase(){
         rootRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot keySnapshot : snapshot.getChildren())
                 {
-                    Notice notice = keySnapshot.getValue(Notice.class);
-                    Log.d("Company", "onDataChange: "+notice.getCompanyName());
-                    notices.add(notice);
+                    HrContact hrContact = keySnapshot.getValue(HrContact.class);
+                    Log.d("Company", "onDataChange: "+hrContact.getHrName());
+                    hrContacts.add(hrContact);
                 }
-                ViewNoticeRVAdapter adapter = new ViewNoticeRVAdapter(notices , getBaseContext());
+                ViewHRContactAdapter adapter = new ViewHRContactAdapter(getBaseContext() , hrContacts);
                 LinearLayoutManager layoutManager = new LinearLayoutManager(getBaseContext() , LinearLayoutManager.VERTICAL,false);
-                viewNoticeRV.setLayoutManager(layoutManager);
-                viewNoticeRV.setAdapter(adapter);
+                hrContactRv.setLayoutManager(layoutManager);
+                hrContactRv.setAdapter(adapter);
             }
 
             @Override

@@ -21,8 +21,11 @@ import com.example.rcpittnp.Model.StudentModel;
 import com.example.rcpittnp.ResumeModule.ResumeBuilderActivity;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -52,24 +55,6 @@ public class ProfileActivity extends AppCompatActivity {
         reference = FirebaseDatabase.getInstance().getReference();
         String uid = firebaseAuth.getCurrentUser().getUid();
         reference = reference.child("users").child("student").child(uid);
-
-        /*reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot : snapshot.getChildren())
-                {
-                    StudentModel student = dataSnapshot.getValue(StudentModel.class);
-                    if(student.getId().equalsIgnoreCase(firebaseAuth.getUid()))
-                        list.add(student);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });*/
-
         Log.d("TAG", "onCreate: "+list.size());
 
         View view = nav.getHeaderView(0);
@@ -84,6 +69,21 @@ public class ProfileActivity extends AppCompatActivity {
         }
         usernameTv.setText(nameStr);
         prnTv.setText(prnStr);
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                StudentModel student = snapshot.getValue(StudentModel.class);
+                String username = capitalizeName(student.getFirstName()) + " "+capitalizeName(student.getLastName());
+                String prn = student.getPrnNumber();
+                usernameTv.setText(username);
+                prnTv.setText(prn);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -127,7 +127,30 @@ public class ProfileActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Add Campus Notice is open",Toast.LENGTH_LONG).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
-
+                    case R.id.addPlacementStatus:
+                        Intent intent4 = new Intent(ProfileActivity.this , AddPlacementStatusActivity.class);
+                        startActivity(intent4);
+                        Toast.makeText(getApplicationContext(),"Add Campus Notice is open",Toast.LENGTH_LONG).show();
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.addFeedback:
+                        Intent intent5 = new Intent(ProfileActivity.this , AddFeedbackActivity.class);
+                        startActivity(intent5);
+                        Toast.makeText(getApplicationContext(),"Add Campus Notice is open",Toast.LENGTH_LONG).show();
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.addHrContact:
+                        Intent intent6 = new Intent(ProfileActivity.this , AddHrContactActivity.class);
+                        startActivity(intent6);
+                        Toast.makeText(getApplicationContext(),"Add Campus Notice is open",Toast.LENGTH_LONG).show();
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.viewHrContact:
+                        Intent intent7 = new Intent(ProfileActivity.this , ViewHRContact.class);
+                        startActivity(intent7);
+                        Toast.makeText(getApplicationContext(),"Add Campus Notice is open",Toast.LENGTH_LONG).show();
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
                 }
                 return true;
             }
@@ -154,5 +177,14 @@ public class ProfileActivity extends AppCompatActivity {
             finish();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public String capitalizeName(String name)
+    {
+        String firstLetter = name.substring(0, 1);
+        String remainingLetters = name.substring(1, name.length());
+        firstLetter = firstLetter.toUpperCase();
+        name = firstLetter + remainingLetters;
+        return name;
     }
 }

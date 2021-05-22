@@ -39,7 +39,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:19.6.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
-
+    implementation 'com.github.ganfra:material-spinner:1.1.1'
 
     implementation files('libs/activation.jar')
     implementation files('libs/additionnal.jar')

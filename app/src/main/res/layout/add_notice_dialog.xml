@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="350dp"
     android:layout_height="400dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="5dp">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="400dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/rect_black_border_rounded">
         <EditText
             android:id="@+id/companyNameEt"
             android:layout_width="match_parent"
@@ -153,15 +154,18 @@
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:weightSum="1"
             android:layout_margin="5dp"
             android:layout_gravity="bottom"
+
             >
             <Button
                 android:id="@+id/btnCancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
+                android:layout_gravity="start"
+                android:layout_weight="0.25"
+                android:layout_marginLeft="150dp"
                 android:text="Cancle"
                 android:textColor="@color/purple_700"
                 android:textAllCaps="false"
@@ -171,7 +175,8 @@
                 android:layout_marginLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
+                android:layout_gravity="right"
+                android:layout_weight="0.25"
                 android:text="Proceed"
                 android:textAllCaps="false"
                 android:background="@drawable/rect_black_border_blackfill"/>

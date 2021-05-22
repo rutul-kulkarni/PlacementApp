@@ -6,6 +6,9 @@ public class Notice {
     String date;
     String pkg;
 
+    public Notice() {
+    }
+
     public Notice(String companyName, Criteria criteria, String date, String pkg) {
         this.companyName = companyName;
         this.criteria = criteria;

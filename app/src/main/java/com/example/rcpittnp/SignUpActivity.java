@@ -23,6 +23,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 public class SignUpActivity extends AppCompatActivity {
 
     EditText firstNameEt , lastNameEt , emailEt ,passwordEt , mobileNumberEt , prnEt , sscMarksEt , hscMarksEt , diplomaMarksEt , currentCgpaEt ,activeBacklogEt , yearGapEt;
@@ -116,7 +118,7 @@ public class SignUpActivity extends AppCompatActivity {
                         if(!activeBacklog.equals("0"))
                             hasactiveBacklog = true;
 
-                        StudentModel student = new StudentModel(firebaseAuth.getUid() ,firstName ,lastName , email ,mobileNumber ,prn ,sscMarks ,hscMarks , hasdiploma ,diplomaMarks , hasyearGap ,hasactiveBacklog ,currentCgpa);
+                        StudentModel student = new StudentModel(firebaseAuth.getUid() ,firstName ,lastName , email ,mobileNumber ,prn ,sscMarks ,hscMarks , hasdiploma ,diplomaMarks , hasyearGap ,hasactiveBacklog ,currentCgpa , new ArrayList<String>());
                         rootRef = FirebaseDatabase.getInstance().getReference();
                         userId = firebaseAuth.getCurrentUser().getUid();
                         rootRef.child("users").child("student").child(userId).setValue(student).addOnCompleteListener(new OnCompleteListener<Void>() {
