@@ -17,28 +17,13 @@ public class StudentModel {
     boolean activeBacklog;
     String activeBacklogCount;
     String cgpa;
-    ArrayList<String> placedCompanies;
 
+    ArrayList<String> placedCompanies;
+    boolean isPlaced;
     public StudentModel() {
     }
-    public StudentModel(StudentModel oldStudent) {
-        this.id = oldStudent.getId();
-        this.firstName = oldStudent.getFirstName();
-        this.lastName = oldStudent.getLastName();
-        this.emailId = oldStudent.getEmailId();
-        this.mobNumber = oldStudent.getMobNumber();
-        this.prnNumber = oldStudent.getPrnNumber();
-        this.sscMarks = oldStudent.getSscMarks();
-        this.hscMarks = oldStudent.getHscMarks();
-        this.diploma = oldStudent.isDiploma();
-        this.diplomaMarks = oldStudent.getDiplomaMarks();
-        this.yearGap = oldStudent.isYearGap();
-        this.activeBacklog = oldStudent.isActiveBacklog();
-        this.cgpa = oldStudent.getCgpa();
-        this.placedCompanies = oldStudent.getPlacedCompanies();
-    }
 
-    public StudentModel(String id ,String firstName, String lastName, String emailId, String mobNumber, String prnNumber, String sscMarks, String hscMarks, boolean diploma, String diplomaMarks, boolean yearGap, boolean activeBacklog, String cgpa , ArrayList<String> placedCompanies) {
+    public StudentModel(String id ,String firstName, String lastName, String emailId, String mobNumber, String prnNumber, String sscMarks, String hscMarks, boolean diploma, String diplomaMarks, boolean yearGap, boolean activeBacklog, String cgpa , ArrayList<String> placedCompanies , boolean isPlaced) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -53,6 +38,7 @@ public class StudentModel {
         this.activeBacklog = activeBacklog;
         this.cgpa = cgpa;
         this.placedCompanies = placedCompanies;
+        this.isPlaced = isPlaced;
     }
 
     public String getId() {
@@ -173,5 +159,13 @@ public class StudentModel {
 
     public void setPlacedCompanies(ArrayList<String> placedCompanies) {
         this.placedCompanies = placedCompanies;
+    }
+
+    public boolean isPlaced() {
+        return isPlaced;
+    }
+
+    public void setPlaced(boolean placed) {
+        isPlaced = placed;
     }
 }

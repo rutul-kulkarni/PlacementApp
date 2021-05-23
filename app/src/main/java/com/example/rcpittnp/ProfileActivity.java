@@ -97,24 +97,12 @@ public class ProfileActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"View Notice is open",Toast.LENGTH_LONG).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
-
-                    case R.id.ApplayCampus :
-                        Toast.makeText(getApplicationContext(),"Campus Driver is Open",Toast.LENGTH_LONG).show();
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-
-                    case R.id.adddriverque :
-                        Toast.makeText(getApplicationContext(),"Add Question for Drive",Toast.LENGTH_LONG).show();
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-
                     case R.id.givequiz :
                         Intent intent = new Intent(ProfileActivity.this , QuizActivity.class);
                         startActivity(intent);
                         Toast.makeText(getApplicationContext(),"Give Quiz is Open",Toast.LENGTH_LONG).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
-
                     case R.id.resumebuil :
                         Intent intent1 = new Intent(ProfileActivity.this , ResumeBuilderActivity.class);
                         startActivity(intent1);
@@ -148,6 +136,12 @@ public class ProfileActivity extends AppCompatActivity {
                     case R.id.viewHrContact:
                         Intent intent7 = new Intent(ProfileActivity.this , ViewHRContact.class);
                         startActivity(intent7);
+                        Toast.makeText(getApplicationContext(),"Add Campus Notice is open",Toast.LENGTH_LONG).show();
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.viewPlacedStudent:
+                        Intent intent8 = new Intent(ProfileActivity.this , ViewPlacedStudents.class);
+                        startActivity(intent8);
                         Toast.makeText(getApplicationContext(),"Add Campus Notice is open",Toast.LENGTH_LONG).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;

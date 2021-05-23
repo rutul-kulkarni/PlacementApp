@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RCPITTNP">
-        <activity android:name=".ViewHRContact"></activity>
+        <activity android:name=".ViewPlacedStudents"></activity>
+        <activity android:name=".ViewHRContact" />
         <activity android:name=".AddHrContactActivity" />
         <activity android:name=".AddFeedbackActivity" />
         <activity android:name=".AddPlacementStatusActivity" />

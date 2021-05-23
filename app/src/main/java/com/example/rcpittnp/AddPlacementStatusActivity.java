@@ -95,13 +95,23 @@ public class AddPlacementStatusActivity extends AppCompatActivity {
                 placedCompanies = studentModel.getPlacedCompanies();
                 if (placedCompanies != null && placedCompanies.size() > 0){
                     placedCompanies.add(companyName);
-                    companiesAdapter.notifyDataSetChanged();
                 }else
                 {
                     placedCompanies = new ArrayList<>();
                     placedCompanies.add(companyName);
                 }
-
+                companiesAdapter.updateData(placedCompanies);
+                DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("users").child("student").child(userId).child("isPlaced");
+                mRef.setValue(true).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(AddPlacementStatusActivity.this, "Placement Status changed..!", Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                            Toast.makeText(AddPlacementStatusActivity.this, "Error changing status..!", Toast.LENGTH_SHORT).show();
+                    }
+                });
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference("users").child("student").child(userId).child("placedCompanies");
                 ref.setValue(placedCompanies).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

@@ -118,7 +118,7 @@ public class SignUpActivity extends AppCompatActivity {
                         if(!activeBacklog.equals("0"))
                             hasactiveBacklog = true;
 
-                        StudentModel student = new StudentModel(firebaseAuth.getUid() ,firstName ,lastName , email ,mobileNumber ,prn ,sscMarks ,hscMarks , hasdiploma ,diplomaMarks , hasyearGap ,hasactiveBacklog ,currentCgpa , new ArrayList<String>());
+                        StudentModel student = new StudentModel(firebaseAuth.getUid() ,firstName ,lastName , email ,mobileNumber ,prn ,sscMarks ,hscMarks , hasdiploma ,diplomaMarks , hasyearGap ,hasactiveBacklog ,currentCgpa , new ArrayList<String>() , false);
                         rootRef = FirebaseDatabase.getInstance().getReference();
                         userId = firebaseAuth.getCurrentUser().getUid();
                         rootRef.child("users").child("student").child(userId).setValue(student).addOnCompleteListener(new OnCompleteListener<Void>() {

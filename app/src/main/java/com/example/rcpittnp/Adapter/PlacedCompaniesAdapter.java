@@ -43,6 +43,12 @@ public class PlacedCompaniesAdapter extends RecyclerView.Adapter<PlacedCompanies
         return placedCompanies.size();
     }
 
+    public void updateData(List<String> placedCompanies)
+    {
+        this.placedCompanies = placedCompanies;
+        notifyDataSetChanged();
+    }
+
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView companyNameTv;

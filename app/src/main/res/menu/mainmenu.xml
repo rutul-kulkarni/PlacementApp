@@ -2,10 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/viewnotice"
         android:title="View Notice"/>
-    <item android:id="@+id/ApplayCampus"
-        android:title="Applay for Campus"/>
-    <item android:id="@+id/adddriverque"
-        android:title="Add Drive Question"/>
     <item android:id="@+id/givequiz"
         android:title="Give Quizz"/>
     <item android:id="@+id/resumebuil"
@@ -20,4 +16,6 @@
         android:title="Add HR Contact"/>
     <item android:id="@+id/viewHrContact"
         android:title="View HR Contact"/>
+    <item android:id="@+id/viewPlacedStudent"
+        android:title="View Placed Student"/>
 </menu>

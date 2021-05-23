@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ViewNotice extends AppCompatActivity {
+
     RecyclerView viewNoticeRV;
     DatabaseReference rootRef;
     List<Notice> notices;
