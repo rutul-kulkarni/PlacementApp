@@ -18,4 +18,8 @@
         android:title="View HR Contact"/>
     <item android:id="@+id/viewPlacedStudent"
         android:title="View Placed Student"/>
+    <item android:id="@+id/newQuiz"
+        android:title="New Quiz"/>
+    <item android:id="@+id/addQuestion"
+        android:title="Add Question"/>
 </menu>

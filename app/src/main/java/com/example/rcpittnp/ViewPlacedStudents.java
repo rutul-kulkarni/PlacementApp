@@ -21,6 +21,7 @@ import java.util.List;
 public class ViewPlacedStudents extends AppCompatActivity {
     RecyclerView placedStudentRv;
     DatabaseReference rootRef;
+    DatabaseReference feedbackRef;
     List<StudentModel> students;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

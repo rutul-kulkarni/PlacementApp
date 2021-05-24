@@ -39,6 +39,8 @@ public class ViewPlacedStudentsAdapter extends RecyclerView.Adapter<ViewPlacedSt
         StudentModel student = students.get(position);
         String studentName = capitalizeName(student.getFirstName()) + " "+capitalizeName(student.getLastName());
         holder.studentNameTv.setText(studentName);
+        if (student.isAllFeedbackGiven())
+            holder.placedIv.setVisibility(View.VISIBLE);
     }
 
     @Override

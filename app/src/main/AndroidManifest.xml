@@ -16,7 +16,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RCPITTNP">
-        <activity android:name=".ViewPlacedStudents"></activity>
+        <activity android:name=".Admin.QuizAdminModule.AdminQuestionDetailsActivity"></activity>
+        <activity android:name=".Admin.QuizAdminModule.AdminQuestionsActivity" />
+        <activity android:name=".Admin.QuizAdminModule.AdminSetsActivity" />
+        <activity android:name=".Admin.QuizAdminModule.AdminCategoryActivity" />
+        <activity android:name=".NewQuizModule.StudentScoreActivity" />
+        <activity android:name=".NewQuizModule.StudentQuestionActivity" />
+        <activity android:name=".NewQuizModule.StudentSetsActivity" />
+        <activity android:name=".NewQuizModule.StudentCategoryActivity" />
+        <activity android:name=".NewQuizModule.StudentQuizMainActivity" />
+        <activity android:name=".ViewPlacedStudents" />
         <activity android:name=".ViewHRContact" />
         <activity android:name=".AddHrContactActivity" />
         <activity android:name=".AddFeedbackActivity" />

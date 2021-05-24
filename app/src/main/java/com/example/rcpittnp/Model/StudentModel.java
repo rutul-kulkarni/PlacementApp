@@ -20,6 +20,7 @@ public class StudentModel {
 
     ArrayList<String> placedCompanies;
     boolean isPlaced;
+    boolean isAllFeedbackGiven;
     public StudentModel() {
     }
 
@@ -167,5 +168,13 @@ public class StudentModel {
 
     public void setPlaced(boolean placed) {
         isPlaced = placed;
+    }
+
+    public boolean isAllFeedbackGiven() {
+        return isAllFeedbackGiven;
+    }
+
+    public void setAllFeedbackGiven(boolean allFeedbackGiven) {
+        isAllFeedbackGiven = allFeedbackGiven;
     }
 }

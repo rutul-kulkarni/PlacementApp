@@ -18,6 +18,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.rcpittnp.Admin.AddCampusNotice;
 import com.example.rcpittnp.Model.StudentModel;
+import com.example.rcpittnp.NewQuizModule.StudentQuizMainActivity;
+import com.example.rcpittnp.Admin.QuizAdminModule.AdminCategoryActivity;
 import com.example.rcpittnp.ResumeModule.ResumeBuilderActivity;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -142,6 +144,18 @@ public class ProfileActivity extends AppCompatActivity {
                     case R.id.viewPlacedStudent:
                         Intent intent8 = new Intent(ProfileActivity.this , ViewPlacedStudents.class);
                         startActivity(intent8);
+                        Toast.makeText(getApplicationContext(),"Add Campus Notice is open",Toast.LENGTH_LONG).show();
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.newQuiz:
+                        Intent intent9 = new Intent(ProfileActivity.this , StudentQuizMainActivity.class);
+                        startActivity(intent9);
+                        Toast.makeText(getApplicationContext(),"Add Campus Notice is open",Toast.LENGTH_LONG).show();
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.addQuestion:
+                        Intent intent10 = new Intent(ProfileActivity.this , AdminCategoryActivity.class);
+                        startActivity(intent10);
                         Toast.makeText(getApplicationContext(),"Add Campus Notice is open",Toast.LENGTH_LONG).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
