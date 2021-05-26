@@ -1,6 +1,8 @@
 package com.example.rcpittnp;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +25,7 @@ public class ViewPlacedStudents extends AppCompatActivity {
     DatabaseReference rootRef;
     DatabaseReference feedbackRef;
     List<StudentModel> students;
+    ProgressDialog loadingBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +34,11 @@ public class ViewPlacedStudents extends AppCompatActivity {
         placedStudentRv =findViewById(R.id.viewPlacedStudentRv);
 
         rootRef = FirebaseDatabase.getInstance().getReference("users").child("student");
+        loadingBar = new ProgressDialog(this);
+        loadingBar.setTitle("Loading Data");
+        loadingBar.setMessage("Please wait...");
+        loadingBar.setCanceledOnTouchOutside(false);
+        loadingBar.show();
         rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -38,12 +46,17 @@ public class ViewPlacedStudents extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren())
                 {
                     StudentModel student = dataSnapshot.getValue(StudentModel.class);
-                    students.add(student);
+                    Log.d("Placed ", "onDataChange: "+student.getFirstName()+ "  "+student.isPlaced());
+                    if (student.isPlaced()) {
+                        students.add(student);
+                        Log.d("Placed ", "onDataChange: "+student.getFirstName()+ "  "+student.isPlaced());
+                    }
                 }
                 ViewPlacedStudentsAdapter adapter = new ViewPlacedStudentsAdapter(getBaseContext() , students);
                 LinearLayoutManager layoutManager = new LinearLayoutManager(getBaseContext() , LinearLayoutManager.VERTICAL,false);
                 placedStudentRv.setLayoutManager(layoutManager);
                 placedStudentRv.setAdapter(adapter);
+                loadingBar.dismiss();
             }
 
             @Override

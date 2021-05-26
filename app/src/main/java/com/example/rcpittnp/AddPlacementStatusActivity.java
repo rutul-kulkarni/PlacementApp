@@ -80,8 +80,8 @@ public class AddPlacementStatusActivity extends AppCompatActivity {
     }
 
     void addCompanyToDatabase() {
-        loadingBar.setTitle("Create Account");
-        loadingBar.setMessage("Please wait, While we are checking credentials...");
+        loadingBar.setTitle("Adding Placement Status");
+        loadingBar.setMessage("Please wait...");
         loadingBar.setCanceledOnTouchOutside(false);
         loadingBar.show();
 
@@ -101,7 +101,7 @@ public class AddPlacementStatusActivity extends AppCompatActivity {
                     placedCompanies.add(companyName);
                 }
                 companiesAdapter.updateData(placedCompanies);
-                DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("users").child("student").child(userId).child("isPlaced");
+                DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("users").child("student").child(userId).child("placed");
                 mRef.setValue(true).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

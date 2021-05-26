@@ -40,7 +40,9 @@ public class PlacedCompaniesAdapter extends RecyclerView.Adapter<PlacedCompanies
 
     @Override
     public int getItemCount() {
-        return placedCompanies.size();
+        if (placedCompanies != null)
+            return placedCompanies.size();
+        return 0;
     }
 
     public void updateData(List<String> placedCompanies)

@@ -1,16 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Admin.AddCampusNotice">
 
-    <Button
-        android:id="@+id/addNoticeBtn"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add Notice"
-        android:layout_centerInParent="true"/>
+        android:orientation="vertical"
+        android:background="@drawable/rect_black_border_rounded">
+        <EditText
+            android:id="@+id/companyNameEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Company Name"
+            android:inputType="textPersonName"
+            />
+        <EditText
+            android:id="@+id/dateEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Campus Date"
+            android:inputType="date"
+            />
+        <EditText
+            android:id="@+id/pkgEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Package in lpa"
+            android:inputType="numberDecimal"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="any criteria?"/>
+            <ToggleButton
+                android:id="@+id/hasCriteria"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/toggle_selector"
+                android:checked="false"
+                android:text=""
+                android:textOff=""
+                android:textOn=""
+                android:layout_marginLeft="100dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/criterialayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            >
 
-</RelativeLayout>
+            <EditText
+                android:id="@+id/sscmarks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="min. SSC marks"
+                android:inputType="numberDecimal"
+                />
+            <EditText
+                android:id="@+id/hscmarks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="min. HSC marks"
+                android:inputType="numberDecimal"
+                />
+            <EditText
+                android:id="@+id/diplomamarks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="min. diploma marks"
+                android:inputType="numberDecimal"
+                />
+            <EditText
+                android:id="@+id/cgpa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Cgpa"
+                android:inputType="numberDecimal"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Active Backlog allowed?"/>
+                <ToggleButton
+                    android:id="@+id/activeBacklogAllowed"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/toggle_selector"
+                    android:checked="false"
+                    android:text=""
+                    android:textOff=""
+                    android:textOn=""
+                    android:layout_marginLeft="100dp"/>
+            </LinearLayout>
+            <EditText
+                android:id="@+id/activeBacklogCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Number of actice backlog"
+                android:inputType="number"
+                android:visibility="gone"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Year Gap allowed?"/>
+                <ToggleButton
+                    android:id="@+id/yearGapAllowed"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/toggle_selector"
+                    android:checked="false"
+                    android:text=""
+                    android:textOff=""
+                    android:textOn=""
+                    android:layout_marginLeft="100dp"/>
+            </LinearLayout>
+            <EditText
+                android:id="@+id/yearGapCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Gap years"
+                android:inputType="number"
+                android:visibility="gone"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:layout_margin="5dp"
+            android:layout_gravity="bottom"
+
+            >
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_weight="0.25"
+                android:layout_marginLeft="150dp"
+                android:text="Cancle"
+                android:textColor="@color/purple_700"
+                android:textAllCaps="false"
+                android:background="@drawable/rect_black_border_rounded"/>
+            <Button
+                android:id="@+id/btnYes"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_weight="0.25"
+                android:text="Proceed"
+                android:textAllCaps="false"
+                android:background="@drawable/rect_black_border_blackfill"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

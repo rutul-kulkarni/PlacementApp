@@ -1,5 +1,6 @@
 package com.example.rcpittnp;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -27,6 +28,7 @@ public class ViewNotice extends AppCompatActivity {
     List<Notice> notices;
     FirebaseAuth firebaseAuth;
     String userId;
+    ProgressDialog loadingBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,11 @@ public class ViewNotice extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         userId = firebaseAuth.getCurrentUser().getUid();
         viewNoticeRV = findViewById(R.id.viewnoticeRV);
+        loadingBar = new ProgressDialog(this);
+        loadingBar.setTitle("Loading Data");
+        loadingBar.setMessage("Please wait...");
+        loadingBar.setCanceledOnTouchOutside(false);
+        loadingBar.show();
         notices = new ArrayList<>();
         rootRef = FirebaseDatabase.getInstance().getReference("notices");
         getDataFromDatabase();
@@ -55,6 +62,7 @@ public class ViewNotice extends AppCompatActivity {
                 LinearLayoutManager layoutManager = new LinearLayoutManager(getBaseContext() , LinearLayoutManager.VERTICAL,false);
                 viewNoticeRV.setLayoutManager(layoutManager);
                 viewNoticeRV.setAdapter(adapter);
+                loadingBar.dismiss();
             }
 
             @Override

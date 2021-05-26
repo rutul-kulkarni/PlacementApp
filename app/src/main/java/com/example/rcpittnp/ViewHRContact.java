@@ -1,5 +1,6 @@
 package com.example.rcpittnp;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -26,6 +27,7 @@ public class ViewHRContact extends AppCompatActivity {
     DatabaseReference rootRef;
     FirebaseAuth firebaseAuth;
     String userId;
+    ProgressDialog loadingBar;
     List<HrContact> hrContacts;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,11 @@ public class ViewHRContact extends AppCompatActivity {
         hrContacts = new ArrayList<>();
         hrContactRv = findViewById(R.id.viewHrContactRv);
         rootRef = FirebaseDatabase.getInstance().getReference("hrcontact");
+        loadingBar = new ProgressDialog(this);
+        loadingBar.setTitle("Adding Placement Status");
+        loadingBar.setMessage("Please wait...");
+        loadingBar.setCanceledOnTouchOutside(false);
+        loadingBar.show();
         getDataFromDatabase();
     }
 
@@ -51,6 +58,7 @@ public class ViewHRContact extends AppCompatActivity {
                 LinearLayoutManager layoutManager = new LinearLayoutManager(getBaseContext() , LinearLayoutManager.VERTICAL,false);
                 hrContactRv.setLayoutManager(layoutManager);
                 hrContactRv.setAdapter(adapter);
+                loadingBar.dismiss();
             }
 
             @Override

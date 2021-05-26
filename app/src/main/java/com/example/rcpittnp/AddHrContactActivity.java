@@ -60,6 +60,10 @@ public class AddHrContactActivity extends AppCompatActivity {
     }
 
     void addHrContacttoDatabase() {
+        loadingBar.setTitle("Adding HR Contact");
+        loadingBar.setMessage("Please wait...");
+        loadingBar.setCanceledOnTouchOutside(false);
+        loadingBar.show();
         rootRef = FirebaseDatabase.getInstance().getReference("hrcontact").push();
         String hrName = hrNameEt.getText().toString();
         String companyName = companyNameEt.getText().toString();
@@ -77,6 +81,7 @@ public class AddHrContactActivity extends AppCompatActivity {
                         Toast.makeText(AddHrContactActivity.this, "Contact Added..!", Toast.LENGTH_SHORT).show();
                     else
                         Toast.makeText(AddHrContactActivity.this, "Error...!", Toast.LENGTH_SHORT).show();
+                    loadingBar.dismiss();
                 }
             });
         }

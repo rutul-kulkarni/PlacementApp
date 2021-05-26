@@ -10,7 +10,9 @@ import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,6 +20,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.rcpittnp.Model.CompanyFeedback;
 import com.example.rcpittnp.Model.StudentModel;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -36,6 +40,8 @@ public class AddFeedbackActivity extends AppCompatActivity {
     ArrayAdapter<String> companySpinnerAdapter;
     ArrayList<String> placedCompanies = new ArrayList<>();
     Button addQueBtn;
+    LinearLayout splitLayout;
+    TextView noPlacedCompany;
 
 
     @Override
@@ -44,7 +50,14 @@ public class AddFeedbackActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_feedback);
 
         companySpinner = findViewById(R.id.companySpinner);
+        loadingBar = new ProgressDialog(this);
+        loadingBar.setTitle("Loading Data");
+        loadingBar.setMessage("Please wait...");
+        loadingBar.setCanceledOnTouchOutside(false);
+        loadingBar.show();
         addQueBtn = findViewById(R.id.btnAddQue);
+        splitLayout = findViewById(R.id.splitLayout);
+        noPlacedCompany = findViewById(R.id.noPlacedTv);
         firebaseAuth = FirebaseAuth.getInstance();
         userId = firebaseAuth.getCurrentUser().getUid();
         rootRef = FirebaseDatabase.getInstance().getReference("users").child("student").child(userId);
@@ -55,9 +68,17 @@ public class AddFeedbackActivity extends AppCompatActivity {
                 placedCompanies = student.getPlacedCompanies();
                 Log.d("Company", "onDataChange: "+placedCompanies);
                 Toast.makeText(AddFeedbackActivity.this, "Data Fetched...!", Toast.LENGTH_SHORT).show();
-                companySpinnerAdapter = new ArrayAdapter(getBaseContext(), android.R.layout.simple_spinner_item, placedCompanies);
-                companySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                companySpinner.setAdapter(companySpinnerAdapter);
+                if (placedCompanies != null) {
+                    companySpinnerAdapter = new ArrayAdapter(getBaseContext(), android.R.layout.simple_spinner_item, placedCompanies);
+                    companySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    companySpinner.setAdapter(companySpinnerAdapter);
+                }
+                else {
+                    splitLayout.setVisibility(View.GONE);
+                    noPlacedCompany.setVisibility(View.VISIBLE);
+                    noPlacedCompany.setText("No Placed Company Yet...!");
+                }
+                loadingBar.dismiss();
             }
 
             @Override
@@ -105,6 +126,10 @@ public class AddFeedbackActivity extends AppCompatActivity {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                loadingBar.setTitle("Adding Data");
+                loadingBar.setMessage("Please wait...");
+                loadingBar.setCanceledOnTouchOutside(false);
+                loadingBar.show();
                 String que1 = "" ,que2= "" ,que3= "" ,que4= "" ,que5= "" ,que6= "" ,que7= "" ,que8= "" ,que9= "" ,que10= "" ;
                 que1 = que1Et.getText().toString();
                 que2 = que2Et.getText().toString();
@@ -118,8 +143,19 @@ public class AddFeedbackActivity extends AppCompatActivity {
                 que10 = que10Et.getText().toString();
                 CompanyFeedback companyFeedback = new CompanyFeedback(que1 ,que2 ,que3 ,que4 ,que5 ,que6 ,que7 ,que8 ,que9 ,que10);
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference("feedback").child(userId).child(selectedCompany);
-                ref.setValue(companyFeedback);
-                Toast.makeText(AddFeedbackActivity.this, "Feedback Added...!", Toast.LENGTH_SHORT).show();
+                ref.setValue(companyFeedback).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful())
+                        {
+                            loadingBar.dismiss();
+                            Toast.makeText(AddFeedbackActivity.this, "Feedback Added...!", Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                            Toast.makeText(AddFeedbackActivity.this, "Error...!", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
                 dialog.dismiss();
             }
         });

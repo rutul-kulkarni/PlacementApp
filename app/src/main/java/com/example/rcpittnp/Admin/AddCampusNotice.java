@@ -38,13 +38,91 @@ public class AddCampusNotice extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_campus_notice);
 
-        addNotice = findViewById(R.id.addNoticeBtn);
         firebaseAuth = FirebaseAuth.getInstance();
 
-        addNotice.setOnClickListener(new View.OnClickListener() {
+        EditText companyNameEt, dateEt, pkgEt, sscMarksEt, hscMarksEt, diplomaMarksEt, cgpaEt, activeBacklogEt, yearGapEt;
+        ToggleButton criteriaTg, activeBacklogTg, yearGapTg;
+        LinearLayout criteriaLayout;
+        companyNameEt = findViewById(R.id.companyNameEt);
+        dateEt = findViewById(R.id.dateEt);
+        pkgEt = findViewById(R.id.pkgEt);
+        sscMarksEt = findViewById(R.id.sscmarks);
+        hscMarksEt = findViewById(R.id.hscmarks);
+        diplomaMarksEt = findViewById(R.id.diplomamarks);
+        cgpaEt = findViewById(R.id.cgpa);
+        activeBacklogEt = findViewById(R.id.activeBacklogCount);
+        yearGapEt = findViewById(R.id.yearGapCount);
+        criteriaTg = findViewById(R.id.hasCriteria);
+        activeBacklogTg = findViewById(R.id.activeBacklogAllowed);
+        yearGapTg = findViewById(R.id.yearGapAllowed);
+        criteriaLayout = findViewById(R.id.criterialayout);
+        if (criteriaTg.isChecked()) {
+            criteriaLayout.setVisibility(View.VISIBLE);
+            if (yearGapTg.isChecked())
+                yearGapEt.setVisibility(View.VISIBLE);
+            if (activeBacklogTg.isChecked())
+                activeBacklogEt.setVisibility(View.VISIBLE);
+        }
+        criteriaTg.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b)
+                    criteriaLayout.setVisibility(View.VISIBLE);
+                else
+                    criteriaLayout.setVisibility(View.GONE);
+            }
+        });
+        yearGapTg.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b)
+                    yearGapEt.setVisibility(View.VISIBLE);
+                else
+                    yearGapEt.setVisibility(View.GONE);
+            }
+        });
+        activeBacklogTg.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b)
+                    activeBacklogEt.setVisibility(View.VISIBLE);
+                else
+                    activeBacklogEt.setVisibility(View.GONE);
+            }
+        });
+        Button yesBtn = findViewById(R.id.btnYes);
+        Button cancelBtn = findViewById(R.id.btnCancel);
+        yesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openCreateNoticeDialog();
+                String companyName = "", date = "", pkg = "", sscMarks = "", hscMarks = "", diplomaMarks = "", cgpa = "", activeBacklogCount = "", yearGapCount = "";
+                if (!TextUtils.isEmpty(companyNameEt.getText().toString()))
+                    companyName = companyNameEt.getText().toString();
+                if (!TextUtils.isEmpty(dateEt.getText().toString()))
+                    date = dateEt.getText().toString();
+                if (!TextUtils.isEmpty(pkgEt.getText().toString()))
+                    pkg = pkgEt.getText().toString();
+                if (!TextUtils.isEmpty(sscMarksEt.getText().toString()))
+                    sscMarks = sscMarksEt.getText().toString();
+                if (!TextUtils.isEmpty(hscMarksEt.getText().toString()))
+                    hscMarks = hscMarksEt.getText().toString();
+                if (!TextUtils.isEmpty(diplomaMarksEt.getText().toString()))
+                    diplomaMarks = diplomaMarksEt.getText().toString();
+                if (!TextUtils.isEmpty(cgpaEt.getText().toString()))
+                    cgpa = cgpaEt.getText().toString();
+                if (activeBacklogTg.isChecked() && !TextUtils.isEmpty(activeBacklogEt.getText().toString()))
+                    activeBacklogCount = activeBacklogEt.getText().toString();
+                if (yearGapTg.isChecked() && !TextUtils.isEmpty(yearGapEt.getText().toString()))
+                    yearGapCount = yearGapEt.getText().toString();
+                Criteria criteria = new Criteria(sscMarks, hscMarks, diplomaMarks, yearGapTg.isChecked(), yearGapCount, activeBacklogTg.isChecked(), activeBacklogCount, cgpa);
+                Notice notice = new Notice(companyName, criteria, date, pkg);
+                addDataToDataBase(notice);
+            }
+        });
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
     }
@@ -149,7 +227,7 @@ public class AddCampusNotice extends AppCompatActivity {
     public void addDataToDataBase(Notice notice) {
         ProgressDialog loadingBar = new ProgressDialog(this);
         loadingBar.setTitle("Creating Notice");
-        loadingBar.setMessage("Please wait, we are adding the notice...");
+        loadingBar.setMessage("Please wait...");
         loadingBar.setCanceledOnTouchOutside(false);
         loadingBar.show();
 

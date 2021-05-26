@@ -2,8 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/viewnotice"
         android:title="View Notice"/>
-    <item android:id="@+id/givequiz"
-        android:title="Give Quizz"/>
     <item android:id="@+id/resumebuil"
         android:title="Resume Builder"/>
     <item android:id="@+id/addCampusNotice"
@@ -11,7 +9,7 @@
     <item android:id="@+id/addPlacementStatus"
         android:title="Add Placement Status"/>
     <item android:id="@+id/addFeedback"
-        android:title="Add Feedback Campus"/>
+        android:title="Placement Feedback Form"/>
     <item android:id="@+id/addHrContact"
         android:title="Add HR Contact"/>
     <item android:id="@+id/viewHrContact"
@@ -19,7 +17,9 @@
     <item android:id="@+id/viewPlacedStudent"
         android:title="View Placed Student"/>
     <item android:id="@+id/newQuiz"
-        android:title="New Quiz"/>
+        android:title="Give Quiz"/>
     <item android:id="@+id/addQuestion"
-        android:title="Add Question"/>
+        android:title="Add Quiz Question"/>
+    <item android:id="@+id/logout"
+        android:title="Logout"/>
 </menu>
